@@ -85,7 +85,7 @@ class Player(models.Model):
     position = models.CharField(_('position'), max_length= 2, choices=POSITION_CHOICES)
     salary = models.IntegerField(_('salary'))
     birth_country = models.CharField(_('birth_country'), max_length= 20)
-    photo = models.ImageField(_('photo'), upload_to='photos', null=True)
+    photo = models.ImageField(_('photo'), upload_to='photos', null=True, blank=True)
     team = models.ForeignKey(Team, verbose_name='team', on_delete=models.SET_NULL, null=True, blank=True, related_name='players')
 
     def __str__(self) -> str:

@@ -1,0 +1,16 @@
+{% extends "basketball/base.html" %}
+
+{% block content %}
+    <h1>NACIONALINĖ KREPŠINIO LYGA</H1>
+    <P>WELCOME TO THE NKL DATABASE</P>
+    <ul>
+        <li><strong>Teams:</strong> {{ num_teams }}</li>
+        <li><strong>Total Players:</strong> {{ num_players }}</li>
+        <li><strong>Total Centers:</strong> {{ num_centers }}<li>
+        <li><strong>Total Power forwards:</strong> {{ num_pf }}</li>
+        <li><strong>Total Small forwards:</strong> {{ num_sf }}</li>
+        <li><strong>Total Shooting guards:</strong> {{ num_sg }}</li>
+        <li><strong>Total Point guards:</strong> {{ num_pg }}</li>
+        <li><strong>Total Staff members:</strong> {{ num_staff }}</li>
+    </ul>
+{% endblock %}
