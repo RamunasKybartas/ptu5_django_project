@@ -1,0 +1,9 @@
+{% extends "basketball/base.html" %}
+
+{% block content %}
+<h1>NKL Teams</h1>
+<p>all currently existing teams:</p>
+{% for x in teams %}
+    <li><a href="{% url 'team' x.id %}">{{x.name}}</a></li>
+    {% endfor %}
+{% endblock %}

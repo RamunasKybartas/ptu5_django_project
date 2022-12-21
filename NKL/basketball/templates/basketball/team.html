@@ -1,0 +1,18 @@
+{% extends "basketball/base.html" %}
+
+{% block content %}
+<h1>{{ team.name }}</h1>
+<p>{{ team.history }}</p>
+<h2> {{ team.name }} currently active players:</h2>
+{% for y in team.players.all %}
+    <li>{{ y.name}} {{ y.surname }}</li>
+{% endfor %}
+<h3>{{ team.name }} currently activate staff members:</h3>
+{% for a in team.staffs.all %}
+    <li>{{ a.name }} {{ a.surname }} - {{ a.responsibility}}</li>
+{% endfor %}
+<h4>{{ team.name }} current sponsors:</h4>
+{% for i in team.sponsors.all %}
+    <li> {{ i.name }}
+{% endfor%}
+{% endblock %}

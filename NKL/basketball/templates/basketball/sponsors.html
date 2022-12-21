@@ -1,0 +1,8 @@
+{% extends "basketball/base.html" %}
+
+{% block content %}
+<h1>All leagues'sponsors</h1>
+{% for a in sponsors %}
+    <li>{{ a.name }}</li>
+    {% endfor %}
+{% endblock content %}

@@ -14,18 +14,17 @@
     <header>
         <div class='container'>
             <li><a href='{% url "index" %}'>Start page</a><li>
-            <li><a href="">All teams</a></li>
-            <li><a href="">Total Power forwards</a><li>
-            <li><a href="">Total Small forwards</a><li>
-            <li><a href="">Total Shooting guards</a><li>
-            <li><a href="">Total Point guards</a><li>
-            <li><a href="">Total Centers</a><li>
-            <div>{% block content %}{% endblock %}</div>
+            <li><a href="/teams">All teams</a></li>
+            <li><a href="">Look for players or staff</a><li>
+            <li><a href="">Look for teams</a><li>
+            <li><a href="/sponsors">Look our sponsors</a><li>
+            <li><a href="">Recent and upcomming games</a><li>
+            <li><a href="">Standings</a><li>            
     </header>
     <main>
-
+        <div>{% block content %}{% endblock %}</div>
     </main>
-    <footer>
+    <footer>PTU5
     </footer>
 </body>
 </html>

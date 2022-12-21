@@ -7,6 +7,7 @@ from PIL import Image
 class Team(models.Model):
     name = models.CharField(_('name'), max_length= 50)
     budget = models.IntegerField(_('budget'))
+    history = models.TextField(_('history'), max_length=3000, default='', blank=True, null=True)
     # arena = models.ManyToManyField(Arena, verbose_name= _('Arena(s)'), help_text=_('choose arenas for this team'))
     
 
@@ -24,7 +25,7 @@ class Team(models.Model):
 
 class Sponsor(models.Model):
     name = models.CharField(_('name'), max_length= 30)
-    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.SET_NULL, null=True, related_name='sponsors')
+    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.CASCADE, null=True, related_name='sponsors')
 
     def __str__(self) -> str:
         return self.name
@@ -39,7 +40,7 @@ class Arena(models.Model):
     name = models.CharField(_('name'), max_length= 50)
     address = models.CharField(_('address'), max_length= 50)
     capacity = models.IntegerField(_('capacity'))
-    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.SET_NULL, null=True, related_name='arenas')
+    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.CASCADE, null=True, related_name='arenas')
 
 
     def __str__(self) -> str:
@@ -52,7 +53,7 @@ class Staff(models.Model):
     birth_date = models.DateField(_('birth_date'))
     salary = models.IntegerField(_('salary'))
     responsibility = models.CharField(_('responsibility'), max_length= 50)
-    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.SET_NULL, null=True, related_name='staffs')
+    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.CASCADE, null=True, related_name='staffs')
     photo = models.ImageField(_('photo'), upload_to='photos', null=True, blank=True)
 
     def __str__(self) -> str:
@@ -86,7 +87,7 @@ class Player(models.Model):
     salary = models.IntegerField(_('salary'))
     birth_country = models.CharField(_('birth_country'), max_length= 20)
     photo = models.ImageField(_('photo'), upload_to='photos', null=True, blank=True)
-    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.SET_NULL, null=True, blank=True, related_name='players')
+    team = models.ForeignKey(Team, verbose_name='team', on_delete=models.CASCADE, null=True, blank=True, related_name='players')
 
     def __str__(self) -> str:
         return f"{self.name} {self.surname}"

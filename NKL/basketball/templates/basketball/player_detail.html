@@ -1,0 +1,13 @@
+{% extends "basketball/base.html" %}
+
+{% block content %}
+    <h1>{{ player.name}} {{player.surname}}</h1>
+
+    <p><strong>Team:</strong> <a href= "{% url 'team' player.team.id %}">{{ player.team }}</a></p>
+    <p><strong>Height:</strong> {{ player.height }}</p> 
+    <p><strong>Weight:</strong> {{ player.weight }}</p> 
+    <p><strong>Birth date:</strong> {{ player.birth_date }}</p> 
+    <p><strong>Position:</strong> {{ player.position }}</p> 
+    <p><strong>Jersey number:</strong> {{ player.jersey_number }}</p> 
+    <p><strong>Birth country:</strong> {{ player.birth_country }}</p>
+{% endblock content%}

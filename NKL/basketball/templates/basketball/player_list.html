@@ -1,0 +1,14 @@
+{% extends "basketball/base.html" %}
+
+{% block content %}
+    <h1>All active players in the league</h1>
+    {% if team_list %}
+    <ul>
+        {% for player in player_list %}
+        <li>
+            <a href= "{{ player.id }}">{{ player.name}} {{ player.surname }}</a> ({{ player.team }})
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
