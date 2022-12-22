@@ -1,0 +1,18 @@
+{% extends "basketball/base.html" %}
+
+{% block content %}
+    <h1>Search to "{{query}}" results:</h1>
+    <br>
+    {% if players %}
+    <ul>
+        {% for player in players %}
+            <li>
+                <a href= "{{ player.id }}">{{ player.name }} {{ player.surname }}</a> ({{ player.team }})
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Nothing matched search results</p>
+    {% endif %}
+
+{% endblock %}

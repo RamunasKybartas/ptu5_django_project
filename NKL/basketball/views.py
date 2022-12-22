@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Player, Staff, Arena, Sponsor, Team
 from django.views import generic
+from django.core.paginator import Paginator
+from django.db.models import Q
 
 def index(request):
     num_teams = Team.objects.all().count()
@@ -26,11 +28,13 @@ def index(request):
     return render(request, 'basketball/index.html', context=context)
 
 def teams(request):
-    teams = Team.objects.all()
-    context =  {
-        'Teams' : teams
+    paginator = Paginator(Team.objects.all(), 14)
+    page_number = request.GET.get('page')
+    paged_teams =  paginator.get_page(page_number)
+    context = {
+        'teams' : paged_teams
     }
-    print(teams)
+
     return render(request, 'basketball/teams.html', context=context)
 
 def team(request, team_id):
@@ -40,12 +44,12 @@ def team(request, team_id):
 
 class PlayerListView(generic.ListView):
     model = Player
-    template_name = 'player_list.html'
+    template_name = 'basketball/player_list.html'
 
 
 class PlayerDetailView(generic.DetailView):
     model = Player
-    template_name = 'player_detail.html'
+    template_name = 'basketball/player_detail.html'
 
 
 def sponsors(request):
@@ -57,4 +61,10 @@ def sponsors(request):
     return render(request, 'basketball/sponsors.html', context=context)
 
 
+def search(request):    
+    query = request.GET.get('query')
+    search_results1 = Player.objects.filter(Q(name__icontains=query) | Q(surname__icontains=query))
+    # search_results2 = Staff.objects.filter(Q(name__icontains=query) | Q(surname__icontains=query))
+    # search_results = search_results1 & search_results2
+    return render(request, 'basketball/search.html', {'players': search_results1, 'query' : query })
 

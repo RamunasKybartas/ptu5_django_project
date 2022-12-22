@@ -19,7 +19,12 @@
             <li><a href="">Look for teams</a><li>
             <li><a href="/sponsors">Look our sponsors</a><li>
             <li><a href="">Recent and upcomming games</a><li>
-            <li><a href="">Standings</a><li>            
+            <li><a href="">Standings</a><li> 
+            <li>
+                <form action="{% url 'search' %}" method="get">
+                <input name="query" type="text" placeholder="Search person">
+                </form>
+            </li>           
     </header>
     <main>
         <div>{% block content %}{% endblock %}</div>
