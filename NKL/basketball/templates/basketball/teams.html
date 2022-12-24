@@ -7,7 +7,7 @@
     <li><a href="{% url 'team' x.id %}">{{x.name}}</a></li>
     {% endfor %}
 {% if teams.has_other_pages %}
-    <ul class="pagination pagination-sm justify-content-end">
+    <ul>
         {% for i in teams.paginator.page_range %}
             {% if teams.number == i %}
                 <li class="page-item active">
@@ -20,6 +20,6 @@
             {% endif %}
         {% endfor %}
     </ul>
-{% endif %}
+    {% endif %}
     
 {% endblock %}
