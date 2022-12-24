@@ -17,7 +17,7 @@ def index(request):
 
     context = {
         'Total_teams' : num_teams,
-        'Total_ players': num_players,
+        'Total_players': num_players,
         'Total_centers' : num_centers,
         'Total_power_forwards' : num_pf,
         'Total_small_forwards' : num_sf,

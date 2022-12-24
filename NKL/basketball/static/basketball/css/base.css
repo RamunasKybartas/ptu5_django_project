@@ -1,29 +1,18 @@
+
+.navigation {
+    margin:  2rem;
+    padding: 10px;
+    justify-content: center;
+    place-items: stretch;
+}
 .container {
     max-width: 1200px;
     min-width: 480px;
     margin: 0 auto;
-    background-color: aqua;
+    background-color: orange;
 }
 
 footer {
     align-items: center;
-    background-color: aqua;
-}
-
-.paginator {
-    margin: 1rem;
-}
-
-.paginator a, .paginator span {
-    display: inline-block;
-    padding: 0.25rem;
-    margin: 0.05rem;
-    text-decoration: none;
-    border: 1px solid rgb(47, 47, 61);
-    border-radius: 0.5rem;
-}
-
-.paginator span {
-    background-color:  rgb(47, 47, 61);
-    color: white;
+    background-color: orange;
 }

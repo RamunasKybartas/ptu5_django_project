@@ -12,19 +12,16 @@
     </head>
 <body>
     <header>
-        <div class='container'>
-            <li><a href='{% url "index" %}'>Start page</a><li>
-            <li><a href="/teams">All teams</a></li>
-            <li><a href="">Look for players or staff</a><li>
-            <li><a href="">Look for teams</a><li>
-            <li><a href="/sponsors">Look our sponsors</a><li>
-            <li><a href="">Recent and upcomming games</a><li>
-            <li><a href="">Standings</a><li> 
-            <li>
+        <div class='navigation container'>
+            <a href='{% url "index" %}'>Start page</a>
+            <a href="/teams">All teams</a>
+            <a href="/sponsors">Look our sponsors</a>
+            <a href="https://www.nklyga.lt/rungtynes/tvarkarastis.html">Recent and upcomming games</a>
+            <a href="https://www.nklyga.lt/lygos/50-7bet-nkl-nacionaline-krepsinio-lyga/lenteles.html">Standings</a> 
                 <form action="{% url 'search' %}" method="get">
                 <input name="query" type="text" placeholder="Search person">
                 </form>
-            </li>           
+        </div>
     </header>
     <main>
         <div>{% block content %}{% endblock %}</div>
