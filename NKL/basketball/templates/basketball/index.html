@@ -1,8 +1,8 @@
 {% extends "basketball/base.html" %}
-
+{% load i18n %}
 {% block content %}
     <h1>NACIONALINĖ KREPŠINIO LYGA</H1>
-    <P>WELCOME TO THE NKL DATABASE</P>
+    <P> {% trans "WELCOME TO THE NKL DATABASE" %}</P>
     <ul>
         <li><strong>Teams:</strong> {{ Total_teams }}</li>
         <li><strong>Total Players:</strong> {{ Total_players }}</li>
@@ -13,4 +13,5 @@
         <li><strong>Total Point guards:</strong> {{ Total_point_guards }}</li>
         <li><strong>Total Staff members:</strong> {{ Total_staff_members }}</li>
     </ul>
+    <p class='red'> Your visiting us {{ num_visits }} time(s) </p>
 {% endblock %}

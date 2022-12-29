@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path("i18n/", include('django.conf.urls.i18n')),
     path('', include('basketball.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
